@@ -1,0 +1,7 @@
+name: placer outage
+description: >
+  The fastest pick-and-place robot needs a head replaced: it is down for two working days from the
+  morning of test day 8.
+seed: 202
+machine_outages:
+  - {machine: placer-3, day: 8, minute: 420, minutes: 2880}

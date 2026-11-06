@@ -1,0 +1,13 @@
+name: launch surge with fast placer breakdown
+description: >
+  A hardware-startup launch season brings a week and a half of heavy quote traffic, and in the
+  middle of it the fast pick-and-place robot placer-3 fails for two days and placer-4 then needs a
+  short repair, so the peak must be carried on the older, slower placers without breaking promised ship dates.
+seed: 417
+demand:
+  - {from_day: 7, to_day: 11, multiplier: 1.6}
+  - {from_day: 12, to_day: 17, multiplier: 2.0}
+  - {from_day: 18, to_day: 20, multiplier: 1.3}
+machine_outages:
+  - {machine: placer-3, day: 13, minute: 420, minutes: 2880}
+  - {machine: placer-4, day: 15, minute: 840, minutes: 360}

@@ -1,0 +1,7 @@
+name: distributor shortage
+description: >
+  A distributor-wide allocation: for ten working days from test day 6, parts are about five times as
+  likely to be backordered as usual.
+seed: 203
+supplier_shocks:
+  - {from_day: 6, to_day: 15, in_stock_multiplier: 0.98}

@@ -1,0 +1,11 @@
+__pycache__/
+*.egg-info/
+.pytest_cache/
+.ruff_cache/
+data/
+warehouse/target/
+warehouse/logs/
+warehouse/dbt_packages/
+.dagster/
+*.duckdb
+*.duckdb.wal

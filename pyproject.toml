@@ -1,0 +1,46 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "pcb-quote-to-ship"
+version = "0.1.0"
+description = "Operations research for an on-demand PCB factory: plan the factory, model the Grid, price and promise, buy parts, and check every forecast against what happened."
+readme = "README.md"
+requires-python = ">=3.11"
+license = {text = "MIT"}
+authors = [{name = "Manoj Kumar Prakash"}]
+dependencies = [
+  "numpy>=1.26",
+  "pandas>=2.1",
+  "scipy>=1.11",
+  "scikit-learn>=1.4",
+  "simpy>=4.1",
+  "ortools>=9.10",
+  "pyyaml>=6",
+  "pyarrow>=14",
+  "duckdb>=1.0",
+  "matplotlib>=3.8",
+]
+
+[project.optional-dependencies]
+pipeline = ["dagster>=1.8", "dagster-dbt>=0.24", "dbt-duckdb>=1.8"]
+dev = ["pytest>=8", "ruff>=0.5"]
+
+[project.scripts]
+q2s = "q2s.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+markers = ["slow: runs a multi-week simulation", "pipeline: needs dbt-duckdb and dagster"]
+
+[tool.ruff]
+line-length = 120
+target-version = "py311"
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "B", "I"]
+ignore = ["B905", "B007"]

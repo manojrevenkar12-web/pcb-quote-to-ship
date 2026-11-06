@@ -1,0 +1,101 @@
+# The simulated factory's truth. Only src/q2s/world and src/q2s/evaluation may read this file
+# (tests/test_isolation.py checks it). The decision models learn everything from the logs.
+#
+# Times are minutes unless a key says otherwise. One simulated day is one working day: the Grid
+# runs around the clock, the manual cell runs two shifts, and orders ship at the evening cutoff.
+
+day_minutes: 1440
+shipping_cutoff_minute: 1320      # 22:00; anything finished later ships the next day
+
+grid:
+  movers: 34                      # every panel rides one mover from kitting to unload
+  transport:
+    base_minutes: 0.7
+    congestion: 1.6               # transport time *= 1 + congestion * (busy movers / fleet) ** 3
+  kitting:                        # automated parts storage loads each panel's tray
+    machines: 2
+    per_job_minutes: 2.0
+    per_unique_part_minutes: 0.12 # first panel of a job: pick every unique part
+    per_panel_minutes: 0.6
+    mtbf_hours: 120
+    mttr_minutes_mean: 25
+  printer:
+    machines: 2
+    per_panel_side_minutes: 1.6
+    stencil_minutes: 3.0          # first panel side of a job on that printer
+    mtbf_hours: 70
+    mttr_minutes_mean: 30
+  placer:
+    # older and newer pick-and-place robots; placements per minute
+    machines:
+      - {name: placer-1, rate: 17.0}
+      - {name: placer-2, rate: 17.0}
+      - {name: placer-3, rate: 26.0}
+      - {name: placer-4, rate: 26.0}
+    handling_minutes: 0.8
+    fine_pitch_slowdown: 0.6      # time *= 1 + slowdown * fine_pitch_share
+    noise_sigma: 0.12             # lognormal noise on each operation
+    mtbf_hours: 30
+    mttr_minutes_mean: 45
+  oven:
+    machines: 2
+    concurrency: 6                # panels inside one conveyor oven at once
+    dwell_minutes: 7.0
+    mtbf_hours: 220
+    mttr_minutes_mean: 120
+  aoi:
+    machines: 2
+    base_minutes: 0.6
+    per_part_minutes: 0.0035
+    mtbf_hours: 110
+    mttr_minutes_mean: 20
+
+manual:                           # off-grid: through-hole parts, rework, final QC and packing
+  operators: 4
+  shift_start_minute: 360         # 06:00
+  shift_end_minute: 1320          # 22:00
+  tht_minutes_per_part: 0.55
+  rework_minutes: 9.0
+  qc_minutes_per_board: 0.9
+  pack_minutes_per_order: 9.0
+  defect_base: 0.012
+  defect_per_part: 0.00005
+  defect_fine_pitch: 0.03
+
+demand:
+  quote_requests_per_day: 74
+  segments:
+    startup:     {share: 0.5, alpha: 0.35, beta: 3.6, gamma: 0.30, competitor_days: 9}
+    enterprise:  {share: 0.3, alpha: 0.55, beta: 2.9, gamma: 0.45, competitor_days: 7}
+    research:    {share: 0.2, alpha: 0.15, beta: 4.3, gamma: 0.15, competitor_days: 10}
+  competitor_markup: 1.85         # competitor price ~ our standard cost * markup * lognormal noise
+  competitor_noise_sigma: 0.18
+  boards: {median: 9, sigma: 1.1, max: 400}
+  parts_per_board: {median: 110, sigma: 0.65, min: 8, max: 900}
+  two_sided_share: 0.4
+  second_side_part_share: 0.3
+  boards_per_panel: {1: 0.4, 2: 0.3, 4: 0.2, 6: 0.1}
+  tht_share: 0.3
+  tht_parts: {min: 2, max: 24}
+  fine_pitch: {alpha: 1.2, beta: 6.0}
+  unique_part_exponent: 0.82      # unique parts ~ 0.55 * parts ** exponent
+
+parts:
+  catalog_size: 2500
+  zipf_exponent: 1.05
+  unit_cost: {median: 0.18, sigma: 1.3}
+  per_board_uses: {mean: 2.4}
+  attrition: 0.03
+  supplier:
+    in_stock_probability: 0.995
+    constrained_share: 0.06        # SKUs whose distributors are often out
+    constrained_in_stock_probability: 0.7
+    in_stock_days: 2
+    backorder_days: {min: 12, max: 28}
+
+costs:                             # how the evaluation scores a run (the company's books)
+  labour_per_minute: 0.75
+  machine_per_minute: 0.35
+  holding_rate_per_year: 0.25
+  late_credit_per_day: 0.05        # share of the price credited per late day
+  late_credit_cap: 0.5

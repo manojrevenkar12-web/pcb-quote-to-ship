@@ -1,0 +1,13 @@
+name: component allocation crunch with panic ordering
+description: >
+  A distributor allocation crisis makes parts far less likely to be in stock for three weeks, and
+  worried customers rush in extra quote requests at the start of it, so the factory must keep quoting
+  realistic ship dates while many accepted orders sit waiting for long-lead parts.
+seed: 562
+demand:
+  - {from_day: 5, to_day: 10, multiplier: 1.35}
+  - {from_day: 11, to_day: 16, multiplier: 1.1}
+supplier_shocks:
+  - {from_day: 4, to_day: 9, in_stock_multiplier: 0.75}
+  - {from_day: 10, to_day: 20, in_stock_multiplier: 0.55}
+  - {from_day: 21, to_day: 25, in_stock_multiplier: 0.85}

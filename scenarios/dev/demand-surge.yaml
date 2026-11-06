@@ -1,0 +1,7 @@
+name: demand surge
+description: >
+  A large robotics customer's program goes live: quote requests run at 1.6x for two weeks, starting
+  on the fifth test day, then return to normal.
+seed: 201
+demand:
+  - {from_day: 5, to_day: 14, multiplier: 1.6}

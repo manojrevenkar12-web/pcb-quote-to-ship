@@ -1,0 +1,15 @@
+name: overlapping oven outages across holiday rebound
+description: >
+  During a quiet holiday week oven-1 is taken down for planned maintenance, oven-2 then fails while
+  it is still down, leaving no reflow for several hours, and demand rebounds sharply right after the
+  holiday while inspection machine aoi-2 is out, testing recovery from a backlog at two stations at once.
+seed: 838
+demand:
+  - {from_day: 22, to_day: 27, multiplier: 0.5}
+  - {from_day: 28, to_day: 32, multiplier: 1.7}
+machine_outages:
+  - {machine: oven-1, day: 23, minute: 360, minutes: 2880}
+  - {machine: oven-2, day: 24, minute: 900, minutes: 600}
+  - {machine: aoi-2, day: 29, minute: 480, minutes: 1440}
+supplier_shocks:
+  - {from_day: 22, to_day: 27, in_stock_multiplier: 0.9}

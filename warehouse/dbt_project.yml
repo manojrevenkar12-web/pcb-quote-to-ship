@@ -1,0 +1,15 @@
+name: q2s_warehouse
+version: "1.0.0"
+config-version: 2
+profile: q2s
+model-paths: ["models"]
+test-paths: ["tests"]
+macro-paths: ["macros"]
+vars:
+  landing: "{{ env_var('Q2S_LANDING', '../data/landing') }}"
+models:
+  q2s_warehouse:
+    staging:
+      +materialized: view
+    marts:
+      +materialized: table

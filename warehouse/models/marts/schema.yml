@@ -1,0 +1,31 @@
+version: 2
+models:
+  - name: dim_orders
+    columns:
+      - name: order_id
+        tests: [not_null, unique]
+      - name: panels
+        tests: [not_null]
+  - name: fct_station_ops
+    columns:
+      - name: station
+        tests:
+          - accepted_values:
+              arguments:
+                values: ['kitting', 'printer', 'placer', 'oven', 'aoi']
+      - name: order_id
+        tests:
+          - relationships:
+              arguments:
+                to: ref('dim_orders')
+                field: order_id
+  - name: fct_order_flow
+    columns:
+      - name: order_id
+        tests: [not_null, unique]
+      - name: on_time
+        tests: [not_null]
+  - name: fct_supplier_leads
+    columns:
+      - name: lead_days
+        tests: [not_null]

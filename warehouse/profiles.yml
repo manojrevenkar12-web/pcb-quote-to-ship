@@ -1,0 +1,18 @@
+# DuckDB stands in for the warehouse locally (and in CI). The SQL is kept portable: the same
+# models run on Postgres with the `postgres` target once the landing tables are loaded there.
+q2s:
+  target: duckdb
+  outputs:
+    duckdb:
+      type: duckdb
+      path: "{{ env_var('Q2S_WAREHOUSE', '../data/warehouse.duckdb') }}"
+      threads: 2
+    postgres:
+      type: postgres
+      host: "{{ env_var('PGHOST', 'localhost') }}"
+      user: "{{ env_var('PGUSER', 'q2s') }}"
+      password: "{{ env_var('PGPASSWORD', 'q2s') }}"
+      port: 5432
+      dbname: "{{ env_var('PGDATABASE', 'q2s') }}"
+      schema: analytics
+      threads: 2
