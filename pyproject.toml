@@ -52,3 +52,6 @@ ignore = ["B905", "B007"]
 [tool.ruff.lint.per-file-ignores]
 # HTML template strings read better unbroken.
 "src/q2s/evaluation/report.py" = ["E501"]
+
+[tool.ruff.lint.isort]
+known-first-party = ["q2s"]
