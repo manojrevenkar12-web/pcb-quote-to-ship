@@ -41,7 +41,7 @@ def instance(seed: int, n: int) -> ReleaseInstance:
     return ReleaseInstance(jobs, 4, 4, r.choice([0, 60]), r.choice([0, 90]), horizon)
 
 
-def study(per_size: int = 5, seconds: float = 20.0) -> dict[str, Any]:
+def study(per_size: int = 4, seconds: float = 15.0) -> dict[str, Any]:
     solvers = SOLVERS if available() else ("cp-sat",)
     out: dict[str, Any] = {"seconds_limit": seconds, "per_size": per_size, "sizes": {}}
     for n in SIZES:
@@ -55,19 +55,36 @@ def study(per_size: int = 5, seconds: float = 20.0) -> dict[str, Any]:
                     _, obj, opt = solve_cpsat(inst, seconds=seconds, workers=1)
                     ref = (obj, opt)
                 else:
-                    _, obj, opt = solve_minizinc(inst, s, seconds=seconds)
+                    try:
+                        _, obj, opt = solve_minizinc(inst, s, seconds=seconds)
+                    except Exception as exc:  # noqa: BLE001 - a back end that cannot take the instance is a result
+                        rows[s].append(
+                            {
+                                "objective": None,
+                                "optimal": False,
+                                "seconds": 0.0,
+                                "ref": ref,
+                                "error": str(exc).splitlines()[0][:160],
+                            }
+                        )
+                        continue
                 rows[s].append({"objective": obj, "optimal": opt, "seconds": round(time.time() - t, 2), "ref": ref})
         size: dict[str, Any] = {}
         for s, rs in rows.items():
             proven = [r for r in rs if r["optimal"]]
             both = [r for r in proven if r["ref"] and r["ref"][1]]
-            claimed_infeasible = sum(r["objective"] is None and r["seconds"] < seconds * 0.9 for r in rs)
+            errors = [r["error"] for r in rs if r.get("error")]
+            claimed_infeasible = sum(
+                r["objective"] is None and not r.get("error") and r["seconds"] < seconds * 0.9 for r in rs
+            )
             size[s] = {
                 "proven": len(proven),
                 "median_seconds": round(statistics.median(r["seconds"] for r in proven), 2) if proven else None,
                 "agree_with_cpsat": sum(r["objective"] == r["ref"][0] for r in both),
                 "compared": len(both),
                 "ended_without_solution_early": claimed_infeasible,
+                "errors": len(errors),
+                "first_error": errors[0] if errors else None,
             }
         out["sizes"][str(n)] = size
     return out

@@ -79,6 +79,8 @@ def build(reports: Path = REPORTS) -> None:
     res = json.loads((reports / "results.json").read_text())
     s = summary(res)
     s["heldout_first"] = first_runs(res, reports)
+    sv = reports / "solvers.json"
+    s["solvers"] = json.loads(sv.read_text()) if sv.exists() else None
     (reports / "REPORT.md").write_text(markdown(res, s))
     (reports / "dashboard.html").write_text(dashboard(res, s))
 
@@ -158,6 +160,43 @@ def markdown(res: dict[str, Any], s: dict[str, Any]) -> str:
                 f"{_pct(sd['within_1_day'])} of the time; the predicted p90 day covers "
                 f"{_pct(sd['p90_covers'])} ({sd['n']:,} predictions).",
             ]
+    solver = [r["solver"] for r in res["rows"] if r["stack"] == "system" and r.get("solver")]
+    if solver:
+        tot = {k: sum(x[k] for x in solver) for k in ("optimal", "feasible", "fallback")}
+        out += [
+            "",
+            "## The release solver each morning (the system, all seeds)",
+            "",
+            f"CP-SAT proved the optimum on {tot['optimal']} mornings, returned a feasible plan inside the "
+            f"time limit on {tot['feasible']}, and fell back to ATCS on {tot['fallback']}.",
+        ]
+    sv = s.get("solvers")
+    if sv:
+        names = list(next(iter(sv["sizes"].values())).keys())
+        out += [
+            "",
+            "## Two models of the release problem, by size",
+            "",
+            "CP-SAT (`schedule.solve_cpsat`) against an independently written MiniZinc model "
+            f"(`models/release.mzn`) on {sv['per_size']} random mornings per size, "
+            f"{sv['seconds_limit']:.0f} s each. Cells: proven optimal, median seconds to prove; "
+            "agreement counts proven optima equal to CP-SAT's proven optimum.",
+            "",
+            "| Orders | " + " | ".join(names) + " |",
+            "|---:|" + "---:|" * len(names),
+        ]
+        for n, row in sv["sizes"].items():
+            cells = []
+            for name in names:
+                c = row[name]
+                med = f"{c['median_seconds']:.1f} s" if c["median_seconds"] is not None else "–"
+                agree = f", {c['agree_with_cpsat']}/{c['compared']} agree" if name != "cp-sat" and c["compared"] else ""
+                early = c["ended_without_solution_early"]
+                bad = f", **{early} ended early with no solution**" if early else ""
+                if c.get("errors"):
+                    bad += f", {c['errors']} could not load the instance"
+                cells.append(f"{c['proven']}/{sv['per_size']}, {med}{agree}{bad}")
+            out.append(f"| {n} | " + " | ".join(cells) + " |")
     m = res.get("machines")
     if m:
         out += [
@@ -219,14 +258,14 @@ def markdown(res: dict[str, Any], s: dict[str, Any]) -> str:
 
 
 # ---------------------------------------------------------------------------------------- dashboard
-def _bars(items: list[tuple[str, float]], fmt, width: int = 560, height_per: int = 34) -> str:
+def _bars(items: list[tuple[str, float]], fmt, width: int = 470, height_per: int = 34) -> str:
     """A horizontal bar chart as inline SVG (negative values extend left of zero)."""
     if not items:
         return '<p class="empty">Nothing to show yet: run <code>q2s evaluate</code>.</p>'
     vals = [v for _, v in items]
     lo, hi = min(0.0, min(vals)), max(0.0, max(vals))
     span = (hi - lo) or 1.0
-    label_w, pad = 210, 70
+    label_w, pad = 180, 112
     plot_w = width - label_w - pad
     zero = label_w + (0 - lo) / span * plot_w
     h = height_per * len(items) + 8
@@ -248,14 +287,14 @@ def _bars(items: list[tuple[str, float]], fmt, width: int = 560, height_per: int
     )
 
 
-def _pairs(items: list[tuple[str, float, float]], fmt, width: int = 560, height_per: int = 30) -> str:
+def _pairs(items: list[tuple[str, float, float]], fmt, width: int = 470, height_per: int = 30) -> str:
     """Truth (filled) against twin (ring) per option, on one axis."""
     if not items:
         return '<p class="empty">The machine study has not run yet.</p>'
     vals = [v for _, a, b in items for v in (a, b)]
     lo, hi = min(0.0, min(vals)), max(vals) or 1.0
     span = (hi - lo) or 1.0
-    label_w, pad = 190, 30
+    label_w, pad = 150, 24
     plot_w = width - label_w - pad
     h = height_per * len(items) + 30
     zero = label_w + (0 - lo) / span * plot_w

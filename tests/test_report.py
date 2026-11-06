@@ -30,6 +30,7 @@ def _results() -> dict:
             "stack": "system",
             "seed": 1,
             "contribution_per_day": 1300.0,
+            "solver": {"optimal": 30, "feasible": 5, "fallback": 0},
             "on_time": 0.9,
             "forecasts": {
                 "panels": {"1": {"n": 30, "mape": 0.1, "bias": 0.02, "coverage_p10_p90": 0.7}},
@@ -73,11 +74,19 @@ def test_report_uses_first_run_and_renders(tmp_path: Path) -> None:
     first = tmp_path / "heldout" / "v1"
     first.mkdir(parents=True)
     (first / "first_run.json").write_text(json.dumps({"results": scen_first()}))
+    cell = {"proven": 5, "median_seconds": 0.4, "agree_with_cpsat": 5, "compared": 5, "ended_without_solution_early": 0}
+    solvers = {
+        "seconds_limit": 20,
+        "per_size": 5,
+        "sizes": {"5": {"cp-sat": cell, "highs": {**cell, "ended_without_solution_early": 1}}},
+    }
+    (tmp_path / "solvers.json").write_text(json.dumps(solvers))
     build(tmp_path)
     md = (tmp_path / "REPORT.md").read_text()
     page = (tmp_path / "dashboard.html").read_text()
     assert "pinned-scenario" in md and "later" not in md
     assert "$1,300" in md and "Do not edit by hand" in md
+    assert "fell back to ATCS on 0" in md and "1 ended early with no solution" in md
     assert page.startswith("<!doctype html>") and "<svg" in page and "pinned-scenario" in page
 
 

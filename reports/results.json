@@ -1,0 +1,2340 @@
+{
+  "seeds": [
+    11,
+    23,
+    37
+  ],
+  "stacks": [
+    "today",
+    "system",
+    "system, FIFO release",
+    "system, ATCS release",
+    "system, today's quotes",
+    "system, buy per order"
+  ],
+  "rows": [
+    {
+      "stack": "today",
+      "seed": 11,
+      "requests": 1846,
+      "win_rate": 0.5861,
+      "orders": 1082,
+      "shipped_share": 0.9381,
+      "revenue": 2204484.0,
+      "contribution": 729351.0,
+      "late_credits": 263434.0,
+      "holding": 9113.0,
+      "inventory_start": 259382.0,
+      "inventory_end": 191130.0,
+      "on_time": 0.8309,
+      "late_days_mean": 1.523,
+      "lead_days_median": 5.0,
+      "lead_days_p90": 15.0,
+      "promise_days_median": 8.0,
+      "markup_median": 2.359,
+      "parts_wait_days_mean": 4.362,
+      "boards_per_day": 692.3,
+      "contribution_per_day": 29174.0,
+      "seconds": 30
+    },
+    {
+      "stack": "system",
+      "seed": 11,
+      "requests": 1846,
+      "win_rate": 0.4962,
+      "orders": 916,
+      "shipped_share": 0.9978,
+      "revenue": 2169096.0,
+      "contribution": 1116153.0,
+      "late_credits": 23946.0,
+      "holding": 21957.0,
+      "inventory_start": 749930.0,
+      "inventory_end": 717218.0,
+      "on_time": 0.9924,
+      "late_days_mean": 0.045,
+      "lead_days_median": 2.0,
+      "lead_days_p90": 4.0,
+      "promise_days_median": 6.0,
+      "markup_median": 2.87,
+      "parts_wait_days_mean": 1.804,
+      "boards_per_day": 570.9,
+      "contribution_per_day": 44646.0,
+      "seconds": 325,
+      "forecasts": {
+        "panels": {
+          "0": {
+            "n": 35,
+            "mape": 0.06,
+            "bias": -0.039,
+            "coverage_p10_p90": 0.429
+          },
+          "1": {
+            "n": 34,
+            "mape": 0.091,
+            "bias": -0.031,
+            "coverage_p10_p90": 0.294
+          },
+          "2": {
+            "n": 33,
+            "mape": 0.173,
+            "bias": -0.151,
+            "coverage_p10_p90": 0.212
+          },
+          "3": {
+            "n": 32,
+            "mape": 0.283,
+            "bias": -0.089,
+            "coverage_p10_p90": 0.125
+          },
+          "4": {
+            "n": 31,
+            "mape": 0.32,
+            "bias": -0.066,
+            "coverage_p10_p90": 0.097
+          },
+          "5": {
+            "n": 30,
+            "mape": 0.241,
+            "bias": -0.123,
+            "coverage_p10_p90": 0.133
+          }
+        },
+        "panels_conformal": {
+          "0": 0.8,
+          "1": 0.417,
+          "2": 0.478,
+          "3": 0.5,
+          "4": 0.524,
+          "5": 0.5
+        },
+        "ship_day": {
+          "n": 5802,
+          "within_1_day": 0.769,
+          "median_error_days": 0.0,
+          "p90_covers": 0.873
+        }
+      },
+      "solver": {
+        "optimal": 0,
+        "feasible": 38,
+        "fallback": 0
+      },
+      "ledger": {
+        "calibrations": [
+          {
+            "day": 98,
+            "promise_hit_rate": 0.993,
+            "buffer_days": 0
+          },
+          {
+            "day": 99,
+            "promise_hit_rate": 0.984,
+            "buffer_days": 0
+          },
+          {
+            "day": 100,
+            "promise_hit_rate": 0.992,
+            "buffer_days": 0
+          },
+          {
+            "day": 100,
+            "win_quotes": 1166,
+            "win_price_slope": -1.999,
+            "win_days_slope": -0.273,
+            "placer_rates": {
+              "placer-1": 17.068,
+              "placer-2": 17.103,
+              "placer-3": 26.185,
+              "placer-4": 26.164
+            },
+            "capacity_per_day": {
+              "placer": 5178,
+              "manual": 3456
+            }
+          },
+          {
+            "day": 101,
+            "promise_hit_rate": 0.993,
+            "buffer_days": 0
+          },
+          {
+            "day": 102,
+            "promise_hit_rate": 0.992,
+            "buffer_days": 0
+          }
+        ],
+        "flags": [
+          {
+            "day": 98,
+            "utilisation": {
+              "placer": 0.628,
+              "manual": 0.502,
+              "printer": 0.297,
+              "kitting": 0.085,
+              "aoi": 0.128,
+              "oven": 0.132,
+              "placer_next2": 0.615,
+              "manual_next2": 0.529
+            },
+            "flags": [
+              "starve"
+            ]
+          },
+          {
+            "day": 99,
+            "utilisation": {
+              "placer": 0.449,
+              "manual": 0.369,
+              "printer": 0.227,
+              "kitting": 0.067,
+              "aoi": 0.093,
+              "oven": 0.093,
+              "placer_next2": 0.13,
+              "manual_next2": 0.15
+            },
+            "flags": [
+              "starve"
+            ]
+          },
+          {
+            "day": 100,
+            "utilisation": {
+              "placer": 0.325,
+              "manual": 0.217,
+              "printer": 0.192,
+              "kitting": 0.057,
+              "aoi": 0.071,
+              "oven": 0.082,
+              "placer_next2": 0.0,
+              "manual_next2": 0.0
+            },
+            "flags": [
+              "starve"
+            ]
+          },
+          {
+            "day": 101,
+            "utilisation": {
+              "placer": 0.23,
+              "manual": 0.2,
+              "printer": 0.153,
+              "kitting": 0.041,
+              "aoi": 0.052,
+              "oven": 0.065,
+              "placer_next2": 0.0,
+              "manual_next2": 0.0
+            },
+            "flags": [
+              "starve"
+            ]
+          },
+          {
+            "day": 102,
+            "utilisation": {
+              "placer": 0.098,
+              "manual": 0.055,
+              "printer": 0.068,
+              "kitting": 0.019,
+              "aoi": 0.021,
+              "oven": 0.027,
+              "placer_next2": 0.0,
+              "manual_next2": 0.0
+            },
+            "flags": [
+              "starve"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "stack": "system, FIFO release",
+      "seed": 11,
+      "requests": 1846,
+      "win_rate": 0.4805,
+      "orders": 887,
+      "shipped_share": 0.9977,
+      "revenue": 2137213.0,
+      "contribution": 1099510.0,
+      "late_credits": 23057.0,
+      "holding": 21730.0,
+      "inventory_start": 739759.0,
+      "inventory_end": 709692.0,
+      "on_time": 0.9921,
+      "late_days_mean": 0.036,
+      "lead_days_median": 3.0,
+      "lead_days_p90": 4.0,
+      "promise_days_median": 7.0,
+      "markup_median": 2.865,
+      "parts_wait_days_mean": 1.803,
+      "boards_per_day": 561.7,
+      "contribution_per_day": 43980.0,
+      "seconds": 263
+    },
+    {
+      "stack": "system, ATCS release",
+      "seed": 11,
+      "requests": 1846,
+      "win_rate": 0.4702,
+      "orders": 868,
+      "shipped_share": 0.9977,
+      "revenue": 2070589.0,
+      "contribution": 1062615.0,
+      "late_credits": 20323.0,
+      "holding": 21768.0,
+      "inventory_start": 749967.0,
+      "inventory_end": 696587.0,
+      "on_time": 0.9931,
+      "late_days_mean": 0.036,
+      "lead_days_median": 3.0,
+      "lead_days_p90": 5.0,
+      "promise_days_median": 7.0,
+      "markup_median": 2.861,
+      "parts_wait_days_mean": 1.801,
+      "boards_per_day": 543.4,
+      "contribution_per_day": 42505.0,
+      "seconds": 285
+    },
+    {
+      "stack": "system, today's quotes",
+      "seed": 11,
+      "requests": 1846,
+      "win_rate": 0.7118,
+      "orders": 1314,
+      "shipped_share": 0.7565,
+      "revenue": 2479078.0,
+      "contribution": 357352.0,
+      "late_credits": 779274.0,
+      "holding": 24546.0,
+      "inventory_start": 753810.0,
+      "inventory_end": 841606.0,
+      "on_time": 0.0107,
+      "late_days_mean": 6.568,
+      "lead_days_median": 12.0,
+      "lead_days_p90": 17.0,
+      "promise_days_median": 5.0,
+      "markup_median": 2.359,
+      "parts_wait_days_mean": 1.72,
+      "boards_per_day": 793.8,
+      "contribution_per_day": 14294.0,
+      "seconds": 134
+    },
+    {
+      "stack": "system, buy per order",
+      "seed": 11,
+      "requests": 1846,
+      "win_rate": 0.565,
+      "orders": 1043,
+      "shipped_share": 0.9386,
+      "revenue": 2375666.0,
+      "contribution": 999926.0,
+      "late_credits": 297644.0,
+      "holding": 8385.0,
+      "inventory_start": 253824.0,
+      "inventory_end": 196881.0,
+      "on_time": 0.8044,
+      "late_days_mean": 1.597,
+      "lead_days_median": 4.0,
+      "lead_days_p90": 13.0,
+      "promise_days_median": 5.0,
+      "markup_median": 2.909,
+      "parts_wait_days_mean": 4.166,
+      "boards_per_day": 646.5,
+      "contribution_per_day": 39997.0,
+      "seconds": 286
+    },
+    {
+      "stack": "today",
+      "seed": 23,
+      "requests": 1813,
+      "win_rate": 0.5929,
+      "orders": 1075,
+      "shipped_share": 0.9116,
+      "revenue": 1943639.0,
+      "contribution": 586169.0,
+      "late_credits": 301675.0,
+      "holding": 8113.0,
+      "inventory_start": 242016.0,
+      "inventory_end": 197605.0,
+      "on_time": 0.7358,
+      "late_days_mean": 1.902,
+      "lead_days_median": 5.0,
+      "lead_days_p90": 16.0,
+      "promise_days_median": 8.0,
+      "markup_median": 2.4,
+      "parts_wait_days_mean": 5.05,
+      "boards_per_day": 679.2,
+      "contribution_per_day": 23447.0,
+      "seconds": 28
+    },
+    {
+      "stack": "system",
+      "seed": 23,
+      "requests": 1813,
+      "win_rate": 0.5108,
+      "orders": 926,
+      "shipped_share": 1.0,
+      "revenue": 1922392.0,
+      "contribution": 1006142.0,
+      "late_credits": 6317.0,
+      "holding": 22541.0,
+      "inventory_start": 787149.0,
+      "inventory_end": 679575.0,
+      "on_time": 0.9946,
+      "late_days_mean": 0.015,
+      "lead_days_median": 2.0,
+      "lead_days_p90": 4.0,
+      "promise_days_median": 7.0,
+      "markup_median": 2.822,
+      "parts_wait_days_mean": 1.915,
+      "boards_per_day": 566.8,
+      "contribution_per_day": 40246.0,
+      "seconds": 325,
+      "forecasts": {
+        "panels": {
+          "0": {
+            "n": 35,
+            "mape": 0.059,
+            "bias": -0.001,
+            "coverage_p10_p90": 0.343
+          },
+          "1": {
+            "n": 34,
+            "mape": 0.15,
+            "bias": -0.117,
+            "coverage_p10_p90": 0.353
+          },
+          "2": {
+            "n": 33,
+            "mape": 0.267,
+            "bias": -0.225,
+            "coverage_p10_p90": 0.212
+          },
+          "3": {
+            "n": 32,
+            "mape": 0.246,
+            "bias": -0.147,
+            "coverage_p10_p90": 0.312
+          },
+          "4": {
+            "n": 31,
+            "mape": 0.271,
+            "bias": -0.077,
+            "coverage_p10_p90": 0.129
+          },
+          "5": {
+            "n": 30,
+            "mape": 0.43,
+            "bias": -0.157,
+            "coverage_p10_p90": 0.033
+          }
+        },
+        "panels_conformal": {
+          "0": 0.72,
+          "1": 0.583,
+          "2": 0.609,
+          "3": 0.409,
+          "4": 0.333,
+          "5": 0.4
+        },
+        "ship_day": {
+          "n": 6029,
+          "within_1_day": 0.785,
+          "median_error_days": 0.0,
+          "p90_covers": 0.905
+        }
+      },
+      "solver": {
+        "optimal": 1,
+        "feasible": 37,
+        "fallback": 0
+      },
+      "ledger": {
+        "calibrations": [
+          {
+            "day": 98,
+            "promise_hit_rate": 0.997,
+            "buffer_days": 0
+          },
+          {
+            "day": 99,
+            "promise_hit_rate": 0.997,
+            "buffer_days": 0
+          },
+          {
+            "day": 100,
+            "promise_hit_rate": 0.997,
+            "buffer_days": 0
+          },
+          {
+            "day": 100,
+            "win_quotes": 1163,
+            "win_price_slope": -3.117,
+            "win_days_slope": -0.255,
+            "placer_rates": {
+              "placer-1": 17.14,
+              "placer-2": 17.138,
+              "placer-3": 26.161,
+              "placer-4": 26.129
+            },
+            "capacity_per_day": {
+              "placer": 5170,
+              "manual": 3456
+            }
+          },
+          {
+            "day": 101,
+            "promise_hit_rate": 0.996,
+            "buffer_days": 0
+          },
+          {
+            "day": 102,
+            "promise_hit_rate": 0.995,
+            "buffer_days": 0
+          }
+        ],
+        "flags": [
+          {
+            "day": 98,
+            "utilisation": {
+              "placer": 0.38,
+              "manual": 0.325,
+              "printer": 0.272,
+              "kitting": 0.077,
+              "aoi": 0.086,
+              "oven": 0.115,
+              "placer_next2": 0.278,
+              "manual_next2": 0.31
+            },
+            "flags": [
+              "starve"
+            ]
+          },
+          {
+            "day": 99,
+            "utilisation": {
+              "placer": 0.287,
+              "manual": 0.278,
+              "printer": 0.148,
+              "kitting": 0.055,
+              "aoi": 0.061,
+              "oven": 0.06,
+              "placer_next2": 0.0,
+              "manual_next2": 0.0
+            },
+            "flags": [
+              "starve"
+            ]
+          },
+          {
+            "day": 100,
+            "utilisation": {
+              "placer": 0.208,
+              "manual": 0.195,
+              "printer": 0.117,
+              "kitting": 0.038,
+              "aoi": 0.045,
+              "oven": 0.051,
+              "placer_next2": 0.0,
+              "manual_next2": 0.0
+            },
+            "flags": [
+              "starve"
+            ]
+          },
+          {
+            "day": 101,
+            "utilisation": {
+              "placer": 0.232,
+              "manual": 0.115,
+              "printer": 0.1,
+              "kitting": 0.033,
+              "aoi": 0.048,
+              "oven": 0.044,
+              "placer_next2": 0.0,
+              "manual_next2": 0.0
+            },
+            "flags": [
+              "starve"
+            ]
+          },
+          {
+            "day": 102,
+            "utilisation": {
+              "placer": 0.148,
+              "manual": 0.073,
+              "printer": 0.112,
+              "kitting": 0.033,
+              "aoi": 0.036,
+              "oven": 0.05,
+              "placer_next2": 0.0,
+              "manual_next2": 0.0
+            },
+            "flags": [
+              "starve"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "stack": "system, FIFO release",
+      "seed": 23,
+      "requests": 1813,
+      "win_rate": 0.5223,
+      "orders": 947,
+      "shipped_share": 1.0,
+      "revenue": 1909706.0,
+      "contribution": 997531.0,
+      "late_credits": 5382.0,
+      "holding": 22539.0,
+      "inventory_start": 784093.0,
+      "inventory_end": 676746.0,
+      "on_time": 0.9958,
+      "late_days_mean": 0.015,
+      "lead_days_median": 2.0,
+      "lead_days_p90": 4.0,
+      "promise_days_median": 7.0,
+      "markup_median": 2.807,
+      "parts_wait_days_mean": 1.916,
+      "boards_per_day": 571.8,
+      "contribution_per_day": 39901.0,
+      "seconds": 256
+    },
+    {
+      "stack": "system, ATCS release",
+      "seed": 23,
+      "requests": 1813,
+      "win_rate": 0.5229,
+      "orders": 948,
+      "shipped_share": 1.0,
+      "revenue": 1932502.0,
+      "contribution": 1000550.0,
+      "late_credits": 13663.0,
+      "holding": 22534.0,
+      "inventory_start": 778207.0,
+      "inventory_end": 663668.0,
+      "on_time": 0.9958,
+      "late_days_mean": 0.018,
+      "lead_days_median": 2.0,
+      "lead_days_p90": 4.0,
+      "promise_days_median": 7.0,
+      "markup_median": 2.818,
+      "parts_wait_days_mean": 1.96,
+      "boards_per_day": 579.8,
+      "contribution_per_day": 40022.0,
+      "seconds": 262
+    },
+    {
+      "stack": "system, today's quotes",
+      "seed": 23,
+      "requests": 1813,
+      "win_rate": 0.7148,
+      "orders": 1296,
+      "shipped_share": 0.8387,
+      "revenue": 2147876.0,
+      "contribution": 404312.0,
+      "late_credits": 566630.0,
+      "holding": 24976.0,
+      "inventory_start": 803893.0,
+      "inventory_end": 794735.0,
+      "on_time": 0.0023,
+      "late_days_mean": 5.351,
+      "lead_days_median": 10.0,
+      "lead_days_p90": 16.0,
+      "promise_days_median": 5.0,
+      "markup_median": 2.4,
+      "parts_wait_days_mean": 1.8,
+      "boards_per_day": 767.6,
+      "contribution_per_day": 16172.0,
+      "seconds": 125
+    },
+    {
+      "stack": "system, buy per order",
+      "seed": 23,
+      "requests": 1813,
+      "win_rate": 0.5196,
+      "orders": 942,
+      "shipped_share": 0.9278,
+      "revenue": 2055404.0,
+      "contribution": 782245.0,
+      "late_credits": 349934.0,
+      "holding": 7347.0,
+      "inventory_start": 206248.0,
+      "inventory_end": 189815.0,
+      "on_time": 0.7155,
+      "late_days_mean": 2.24,
+      "lead_days_median": 4.0,
+      "lead_days_p90": 16.0,
+      "promise_days_median": 7.0,
+      "markup_median": 2.962,
+      "parts_wait_days_mean": 5.273,
+      "boards_per_day": 590.0,
+      "contribution_per_day": 31290.0,
+      "seconds": 277
+    },
+    {
+      "stack": "today",
+      "seed": 37,
+      "requests": 1829,
+      "win_rate": 0.5714,
+      "orders": 1045,
+      "shipped_share": 0.9091,
+      "revenue": 1884333.0,
+      "contribution": 529083.0,
+      "late_credits": 332323.0,
+      "holding": 10561.0,
+      "inventory_start": 316579.0,
+      "inventory_end": 281543.0,
+      "on_time": 0.6852,
+      "late_days_mean": 1.944,
+      "lead_days_median": 7.0,
+      "lead_days_p90": 15.0,
+      "promise_days_median": 8.0,
+      "markup_median": 2.535,
+      "parts_wait_days_mean": 4.511,
+      "boards_per_day": 692.7,
+      "contribution_per_day": 21163.0,
+      "seconds": 28
+    },
+    {
+      "stack": "system",
+      "seed": 37,
+      "requests": 1829,
+      "win_rate": 0.4379,
+      "orders": 801,
+      "shipped_share": 1.0,
+      "revenue": 1495336.0,
+      "contribution": 774186.0,
+      "late_credits": 1888.0,
+      "holding": 20645.0,
+      "inventory_start": 625274.0,
+      "inventory_end": 654816.0,
+      "on_time": 0.9913,
+      "late_days_mean": 0.02,
+      "lead_days_median": 2.0,
+      "lead_days_p90": 4.0,
+      "promise_days_median": 8.0,
+      "markup_median": 2.855,
+      "parts_wait_days_mean": 1.829,
+      "boards_per_day": 482.8,
+      "contribution_per_day": 30967.0,
+      "seconds": 326,
+      "forecasts": {
+        "panels": {
+          "0": {
+            "n": 35,
+            "mape": 0.049,
+            "bias": 0.002,
+            "coverage_p10_p90": 0.4
+          },
+          "1": {
+            "n": 34,
+            "mape": 0.185,
+            "bias": -0.021,
+            "coverage_p10_p90": 0.235
+          },
+          "2": {
+            "n": 33,
+            "mape": 0.267,
+            "bias": -0.149,
+            "coverage_p10_p90": 0.303
+          },
+          "3": {
+            "n": 32,
+            "mape": 0.271,
+            "bias": -0.141,
+            "coverage_p10_p90": 0.219
+          },
+          "4": {
+            "n": 31,
+            "mape": 0.311,
+            "bias": -0.096,
+            "coverage_p10_p90": 0.258
+          },
+          "5": {
+            "n": 30,
+            "mape": 0.385,
+            "bias": -0.137,
+            "coverage_p10_p90": 0.2
+          }
+        },
+        "panels_conformal": {
+          "0": 0.84,
+          "1": 0.5,
+          "2": 0.522,
+          "3": 0.364,
+          "4": 0.381,
+          "5": 0.35
+        },
+        "ship_day": {
+          "n": 7450,
+          "within_1_day": 0.765,
+          "median_error_days": 0.0,
+          "p90_covers": 0.862
+        }
+      },
+      "solver": {
+        "optimal": 1,
+        "feasible": 37,
+        "fallback": 0
+      },
+      "ledger": {
+        "calibrations": [
+          {
+            "day": 98,
+            "promise_hit_rate": 0.989,
+            "buffer_days": 0
+          },
+          {
+            "day": 99,
+            "promise_hit_rate": 0.993,
+            "buffer_days": 0
+          },
+          {
+            "day": 100,
+            "promise_hit_rate": 0.993,
+            "buffer_days": 0
+          },
+          {
+            "day": 100,
+            "win_quotes": 1078,
+            "win_price_slope": -3.461,
+            "win_days_slope": -0.26,
+            "placer_rates": {
+              "placer-1": 17.111,
+              "placer-2": 17.113,
+              "placer-3": 26.181,
+              "placer-4": 26.189
+            },
+            "capacity_per_day": {
+              "placer": 5174,
+              "manual": 3456
+            }
+          },
+          {
+            "day": 101,
+            "promise_hit_rate": 0.996,
+            "buffer_days": 0
+          },
+          {
+            "day": 102,
+            "promise_hit_rate": 0.995,
+            "buffer_days": 0
+          }
+        ],
+        "flags": [
+          {
+            "day": 98,
+            "utilisation": {
+              "placer": 0.55,
+              "manual": 0.27,
+              "printer": 0.261,
+              "kitting": 0.074,
+              "aoi": 0.108,
+              "oven": 0.109,
+              "placer_next2": 0.517,
+              "manual_next2": 0.21
+            },
+            "flags": [
+              "starve"
+            ]
+          },
+          {
+            "day": 99,
+            "utilisation": {
+              "placer": 0.338,
+              "manual": 0.203,
+              "printer": 0.196,
+              "kitting": 0.05,
+              "aoi": 0.072,
+              "oven": 0.084,
+              "placer_next2": 0.03,
+              "manual_next2": 0.048
+            },
+            "flags": [
+              "starve"
+            ]
+          },
+          {
+            "day": 100,
+            "utilisation": {
+              "placer": 0.387,
+              "manual": 0.224,
+              "printer": 0.303,
+              "kitting": 0.06,
+              "aoi": 0.086,
+              "oven": 0.125,
+              "placer_next2": 0.0,
+              "manual_next2": 0.0
+            },
+            "flags": [
+              "starve"
+            ]
+          },
+          {
+            "day": 101,
+            "utilisation": {
+              "placer": 0.265,
+              "manual": 0.147,
+              "printer": 0.224,
+              "kitting": 0.043,
+              "aoi": 0.06,
+              "oven": 0.093,
+              "placer_next2": 0.0,
+              "manual_next2": 0.0
+            },
+            "flags": [
+              "starve"
+            ]
+          },
+          {
+            "day": 102,
+            "utilisation": {
+              "placer": 0.077,
+              "manual": 0.055,
+              "printer": 0.05,
+              "kitting": 0.017,
+              "aoi": 0.017,
+              "oven": 0.02,
+              "placer_next2": 0.0,
+              "manual_next2": 0.0
+            },
+            "flags": [
+              "starve"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "stack": "system, FIFO release",
+      "seed": 37,
+      "requests": 1829,
+      "win_rate": 0.4401,
+      "orders": 805,
+      "shipped_share": 1.0,
+      "revenue": 1511455.0,
+      "contribution": 782400.0,
+      "late_credits": 1177.0,
+      "holding": 20629.0,
+      "inventory_start": 626558.0,
+      "inventory_end": 657556.0,
+      "on_time": 0.995,
+      "late_days_mean": 0.012,
+      "lead_days_median": 2.0,
+      "lead_days_p90": 4.0,
+      "promise_days_median": 8.0,
+      "markup_median": 2.856,
+      "parts_wait_days_mean": 1.829,
+      "boards_per_day": 486.8,
+      "contribution_per_day": 31296.0,
+      "seconds": 247
+    },
+    {
+      "stack": "system, ATCS release",
+      "seed": 37,
+      "requests": 1829,
+      "win_rate": 0.4505,
+      "orders": 824,
+      "shipped_share": 1.0,
+      "revenue": 1523914.0,
+      "contribution": 789284.0,
+      "late_credits": 3128.0,
+      "holding": 20557.0,
+      "inventory_start": 626444.0,
+      "inventory_end": 661514.0,
+      "on_time": 0.9915,
+      "late_days_mean": 0.025,
+      "lead_days_median": 2.0,
+      "lead_days_p90": 4.0,
+      "promise_days_median": 8.0,
+      "markup_median": 2.877,
+      "parts_wait_days_mean": 1.867,
+      "boards_per_day": 494.8,
+      "contribution_per_day": 31571.0,
+      "seconds": 261
+    },
+    {
+      "stack": "system, today's quotes",
+      "seed": 37,
+      "requests": 1829,
+      "win_rate": 0.6894,
+      "orders": 1261,
+      "shipped_share": 0.724,
+      "revenue": 2046221.0,
+      "contribution": 127737.0,
+      "late_credits": 823803.0,
+      "holding": 27187.0,
+      "inventory_start": 711540.0,
+      "inventory_end": 932119.0,
+      "on_time": 0.0,
+      "late_days_mean": 8.669,
+      "lead_days_median": 14.0,
+      "lead_days_p90": 19.0,
+      "promise_days_median": 5.0,
+      "markup_median": 2.535,
+      "parts_wait_days_mean": 1.815,
+      "boards_per_day": 768.6,
+      "contribution_per_day": 5109.0,
+      "seconds": 124
+    },
+    {
+      "stack": "system, buy per order",
+      "seed": 37,
+      "requests": 1829,
+      "win_rate": 0.3783,
+      "orders": 692,
+      "shipped_share": 0.8844,
+      "revenue": 1301415.0,
+      "contribution": 540309.0,
+      "late_credits": 178546.0,
+      "holding": 7859.0,
+      "inventory_start": 302473.0,
+      "inventory_end": 171820.0,
+      "on_time": 0.8295,
+      "late_days_mean": 1.553,
+      "lead_days_median": 4.0,
+      "lead_days_p90": 15.0,
+      "promise_days_median": 10.0,
+      "markup_median": 3.081,
+      "parts_wait_days_mean": 4.225,
+      "boards_per_day": 426.0,
+      "contribution_per_day": 21612.0,
+      "seconds": 251
+    }
+  ],
+  "comparisons": {
+    "system": {
+      "contribution_per_day": {
+        "mean": 14025.0,
+        "low": 11693.333,
+        "high": 16356.667,
+        "per_seed": [
+          15472.0,
+          16799.0,
+          9804.0
+        ]
+      },
+      "on_time": {
+        "mean": 0.242,
+        "low": 0.194,
+        "high": 0.29,
+        "per_seed": [
+          0.161,
+          0.259,
+          0.306
+        ]
+      },
+      "late_days_mean": {
+        "mean": -1.763,
+        "low": -1.912,
+        "high": -1.614,
+        "per_seed": [
+          -1.478,
+          -1.887,
+          -1.924
+        ]
+      },
+      "win_rate": {
+        "mean": -0.102,
+        "low": -0.119,
+        "high": -0.085,
+        "per_seed": [
+          -0.09,
+          -0.082,
+          -0.134
+        ]
+      },
+      "lead_days_p90": {
+        "mean": -11.333,
+        "low": -11.667,
+        "high": -11.0,
+        "per_seed": [
+          -11.0,
+          -12.0,
+          -11.0
+        ]
+      },
+      "revenue": {
+        "mean": -148544.0,
+        "low": -271127.333,
+        "high": -25960.667,
+        "per_seed": [
+          -35388.0,
+          -21247.0,
+          -388997.0
+        ]
+      },
+      "late_credits": {
+        "mean": -288427.0,
+        "low": -318742.667,
+        "high": -258111.333,
+        "per_seed": [
+          -239488.0,
+          -295358.0,
+          -330435.0
+        ]
+      },
+      "holding": {
+        "mean": 12452.0,
+        "low": 11004.0,
+        "high": 13900.0,
+        "per_seed": [
+          12844.0,
+          14428.0,
+          10084.0
+        ]
+      }
+    },
+    "system, FIFO release": {
+      "contribution_per_day": {
+        "mean": 13797.667,
+        "low": 11690.667,
+        "high": 15904.667,
+        "per_seed": [
+          14806.0,
+          16454.0,
+          10133.0
+        ]
+      },
+      "on_time": {
+        "mean": 0.244,
+        "low": 0.194,
+        "high": 0.293,
+        "per_seed": [
+          0.161,
+          0.26,
+          0.31
+        ]
+      },
+      "late_days_mean": {
+        "mean": -1.769,
+        "low": -1.917,
+        "high": -1.62,
+        "per_seed": [
+          -1.487,
+          -1.887,
+          -1.932
+        ]
+      },
+      "win_rate": {
+        "mean": -0.102,
+        "low": -0.123,
+        "high": -0.082,
+        "per_seed": [
+          -0.106,
+          -0.071,
+          -0.131
+        ]
+      },
+      "lead_days_p90": {
+        "mean": -11.333,
+        "low": -11.667,
+        "high": -11.0,
+        "per_seed": [
+          -11.0,
+          -12.0,
+          -11.0
+        ]
+      },
+      "revenue": {
+        "mean": -158027.333,
+        "low": -271009.0,
+        "high": -45045.667,
+        "per_seed": [
+          -67271.0,
+          -33933.0,
+          -372878.0
+        ]
+      },
+      "late_credits": {
+        "mean": -289272.0,
+        "low": -319528.333,
+        "high": -259015.667,
+        "per_seed": [
+          -240377.0,
+          -296293.0,
+          -331146.0
+        ]
+      },
+      "holding": {
+        "mean": 12370.333,
+        "low": 10917.667,
+        "high": 13823.0,
+        "per_seed": [
+          12617.0,
+          14426.0,
+          10068.0
+        ]
+      }
+    },
+    "system, ATCS release": {
+      "contribution_per_day": {
+        "mean": 13438.0,
+        "low": 11382.333,
+        "high": 15493.667,
+        "per_seed": [
+          13331.0,
+          16575.0,
+          10408.0
+        ]
+      },
+      "on_time": {
+        "mean": 0.243,
+        "low": 0.195,
+        "high": 0.291,
+        "per_seed": [
+          0.162,
+          0.26,
+          0.306
+        ]
+      },
+      "late_days_mean": {
+        "mean": -1.763,
+        "low": -1.907,
+        "high": -1.619,
+        "per_seed": [
+          -1.487,
+          -1.884,
+          -1.919
+        ]
+      },
+      "win_rate": {
+        "mean": -0.102,
+        "low": -0.119,
+        "high": -0.085,
+        "per_seed": [
+          -0.116,
+          -0.07,
+          -0.121
+        ]
+      },
+      "lead_days_p90": {
+        "mean": -11.0,
+        "low": -11.667,
+        "high": -10.333,
+        "per_seed": [
+          -10.0,
+          -12.0,
+          -11.0
+        ]
+      },
+      "revenue": {
+        "mean": -168483.667,
+        "low": -284911.0,
+        "high": -52056.333,
+        "per_seed": [
+          -133895.0,
+          -11137.0,
+          -360419.0
+        ]
+      },
+      "late_credits": {
+        "mean": -286772.667,
+        "low": -315467.333,
+        "high": -258078.0,
+        "per_seed": [
+          -243111.0,
+          -288012.0,
+          -329195.0
+        ]
+      },
+      "holding": {
+        "mean": 12357.333,
+        "low": 10882.333,
+        "high": 13832.333,
+        "per_seed": [
+          12655.0,
+          14421.0,
+          9996.0
+        ]
+      }
+    },
+    "system, today's quotes": {
+      "contribution_per_day": {
+        "mean": -12736.333,
+        "low": -15662.667,
+        "high": -9810.0,
+        "per_seed": [
+          -14880.0,
+          -7275.0,
+          -16054.0
+        ]
+      },
+      "on_time": {
+        "mean": -0.746,
+        "low": -0.791,
+        "high": -0.701,
+        "per_seed": [
+          -0.82,
+          -0.734,
+          -0.685
+        ]
+      },
+      "late_days_mean": {
+        "mean": 5.073,
+        "low": 3.981,
+        "high": 6.165,
+        "per_seed": [
+          5.045,
+          3.449,
+          6.725
+        ]
+      },
+      "win_rate": {
+        "mean": 0.122,
+        "low": 0.119,
+        "high": 0.124,
+        "per_seed": [
+          0.126,
+          0.122,
+          0.118
+        ]
+      },
+      "lead_days_p90": {
+        "mean": 2.0,
+        "low": 0.667,
+        "high": 3.333,
+        "per_seed": [
+          2.0,
+          0.0,
+          4.0
+        ]
+      },
+      "revenue": {
+        "mean": 213573.0,
+        "low": 176004.333,
+        "high": 251141.667,
+        "per_seed": [
+          274594.0,
+          204237.0,
+          161888.0
+        ]
+      },
+      "late_credits": {
+        "mean": 424091.667,
+        "low": 340463.333,
+        "high": 507720.0,
+        "per_seed": [
+          515840.0,
+          264955.0,
+          491480.0
+        ]
+      },
+      "holding": {
+        "mean": 16307.333,
+        "low": 15830.667,
+        "high": 16784.0,
+        "per_seed": [
+          15433.0,
+          16863.0,
+          16626.0
+        ]
+      }
+    },
+    "system, buy per order": {
+      "contribution_per_day": {
+        "mean": 6371.667,
+        "low": 2913.667,
+        "high": 9829.667,
+        "per_seed": [
+          10823.0,
+          7843.0,
+          449.0
+        ]
+      },
+      "on_time": {
+        "mean": 0.033,
+        "low": -0.024,
+        "high": 0.089,
+        "per_seed": [
+          -0.026,
+          -0.02,
+          0.144
+        ]
+      },
+      "late_days_mean": {
+        "mean": 0.007,
+        "low": -0.236,
+        "high": 0.25,
+        "per_seed": [
+          0.074,
+          0.338,
+          -0.391
+        ]
+      },
+      "win_rate": {
+        "mean": -0.096,
+        "low": -0.153,
+        "high": -0.039,
+        "per_seed": [
+          -0.021,
+          -0.073,
+          -0.193
+        ]
+      },
+      "lead_days_p90": {
+        "mean": -0.667,
+        "low": -1.333,
+        "high": 0.0,
+        "per_seed": [
+          -2.0,
+          0.0,
+          0.0
+        ]
+      },
+      "revenue": {
+        "mean": -99990.333,
+        "low": -351357.0,
+        "high": 151376.333,
+        "per_seed": [
+          171182.0,
+          111765.0,
+          -582918.0
+        ]
+      },
+      "late_credits": {
+        "mean": -23769.333,
+        "low": -91114.667,
+        "high": 43576.0,
+        "per_seed": [
+          34210.0,
+          48259.0,
+          -153777.0
+        ]
+      },
+      "holding": {
+        "mean": -1398.667,
+        "low": -2056.667,
+        "high": -740.667,
+        "per_seed": [
+          -728.0,
+          -766.0,
+          -2702.0
+        ]
+      }
+    },
+    "system vs system, FIFO release": {
+      "contribution_per_day": {
+        "mean": 227.333,
+        "low": -104.333,
+        "high": 559.0,
+        "per_seed": [
+          666.0,
+          345.0,
+          -329.0
+        ]
+      },
+      "on_time": {
+        "mean": -0.002,
+        "low": -0.003,
+        "high": -0.0,
+        "per_seed": [
+          0.0,
+          -0.001,
+          -0.004
+        ]
+      },
+      "late_days_mean": {
+        "mean": 0.006,
+        "low": 0.003,
+        "high": 0.009,
+        "per_seed": [
+          0.009,
+          0.0,
+          0.008
+        ]
+      }
+    },
+    "system vs system, ATCS release": {
+      "contribution_per_day": {
+        "mean": 587.0,
+        "low": -328.0,
+        "high": 1502.0,
+        "per_seed": [
+          2141.0,
+          224.0,
+          -604.0
+        ]
+      },
+      "on_time": {
+        "mean": -0.001,
+        "low": -0.001,
+        "high": -0.0,
+        "per_seed": [
+          -0.001,
+          -0.001,
+          -0.0
+        ]
+      },
+      "late_days_mean": {
+        "mean": 0.0,
+        "low": -0.004,
+        "high": 0.005,
+        "per_seed": [
+          0.009,
+          -0.003,
+          -0.005
+        ]
+      }
+    },
+    "system vs system, today's quotes": {
+      "contribution_per_day": {
+        "mean": 26761.333,
+        "low": 24668.667,
+        "high": 28854.0,
+        "per_seed": [
+          30352.0,
+          24074.0,
+          25858.0
+        ]
+      },
+      "on_time": {
+        "mean": 0.988,
+        "low": 0.985,
+        "high": 0.992,
+        "per_seed": [
+          0.982,
+          0.992,
+          0.991
+        ]
+      },
+      "late_days_mean": {
+        "mean": -6.836,
+        "low": -7.94,
+        "high": -5.732,
+        "per_seed": [
+          -6.523,
+          -5.336,
+          -8.649
+        ]
+      }
+    },
+    "system vs system, buy per order": {
+      "contribution_per_day": {
+        "mean": 7653.333,
+        "low": 6084.667,
+        "high": 9222.0,
+        "per_seed": [
+          4649.0,
+          8956.0,
+          9355.0
+        ]
+      },
+      "on_time": {
+        "mean": 0.21,
+        "low": 0.171,
+        "high": 0.249,
+        "per_seed": [
+          0.188,
+          0.279,
+          0.162
+        ]
+      },
+      "late_days_mean": {
+        "mean": -1.77,
+        "low": -2.001,
+        "high": -1.539,
+        "per_seed": [
+          -1.552,
+          -2.225,
+          -1.533
+        ]
+      }
+    }
+  },
+  "machines": {
+    "options": {
+      "none": {
+        "truth": {
+          "flow_days": 1.7084919308497595,
+          "late_credits": 52354.07,
+          "late_days": 0.39641943734015345
+        },
+        "twin": {
+          "flow_days": 1.7986367501529152,
+          "late_credits": 52670.857833333335
+        },
+        "truth_saving": 0.0,
+        "twin_saving": 0.0,
+        "truth_flow_change": 0.0,
+        "twin_flow_change": 0.0
+      },
+      "+1 placer": {
+        "truth": {
+          "flow_days": 0.6743736543898673,
+          "late_credits": 49292.01950000002,
+          "late_days": 0.36061381074168797
+        },
+        "twin": {
+          "flow_days": 0.8014671972041111,
+          "late_credits": 49292.019499999995
+        },
+        "truth_saving": 3062.0,
+        "twin_saving": 3379.0,
+        "truth_flow_change": -1.034,
+        "twin_flow_change": -0.997
+      },
+      "+1 printer": {
+        "truth": {
+          "flow_days": 1.3422682848377359,
+          "late_credits": 51878.972,
+          "late_days": 0.3900255754475703
+        },
+        "twin": {
+          "flow_days": 1.6282923981603805,
+          "late_credits": 52163.975
+        },
+        "truth_saving": 475.0,
+        "twin_saving": 507.0,
+        "truth_flow_change": -0.366,
+        "twin_flow_change": -0.17
+      },
+      "+1 oven": {
+        "truth": {
+          "flow_days": 1.8172166510169607,
+          "late_credits": 53087.637,
+          "late_days": 0.4040920716112532
+        },
+        "twin": {
+          "flow_days": 1.879034357962305,
+          "late_credits": 53531.73049999998
+        },
+        "truth_saving": -734.0,
+        "twin_saving": -861.0,
+        "truth_flow_change": 0.109,
+        "twin_flow_change": 0.08
+      },
+      "+1 inspection": {
+        "truth": {
+          "flow_days": 1.686231552301175,
+          "late_credits": 52354.07,
+          "late_days": 0.39641943734015345
+        },
+        "twin": {
+          "flow_days": 1.8949698822786314,
+          "late_credits": 53452.2645
+        },
+        "truth_saving": 0.0,
+        "twin_saving": -781.0,
+        "truth_flow_change": -0.022,
+        "twin_flow_change": 0.096
+      },
+      "+1 kitting robot": {
+        "truth": {
+          "flow_days": 1.7342196858985983,
+          "late_credits": 52354.07,
+          "late_days": 0.39641943734015345
+        },
+        "twin": {
+          "flow_days": 1.8900134294171929,
+          "late_credits": 53422.56699999999
+        },
+        "truth_saving": 0.0,
+        "twin_saving": -752.0,
+        "truth_flow_change": 0.026,
+        "twin_flow_change": 0.091
+      },
+      "+8 movers": {
+        "truth": {
+          "flow_days": 1.5358908094105561,
+          "late_credits": 52331.0925,
+          "late_days": 0.39514066496163686
+        },
+        "twin": {
+          "flow_days": 1.6888168610844312,
+          "late_credits": 52328.753
+        },
+        "truth_saving": 23.0,
+        "twin_saving": 342.0,
+        "truth_flow_change": -0.173,
+        "twin_flow_change": -0.11
+      },
+      "+1 operator per shift": {
+        "truth": {
+          "flow_days": 1.6862241123221526,
+          "late_credits": 51909.199,
+          "late_days": 0.39258312020460356
+        },
+        "twin": {
+          "flow_days": 1.8213322788242043,
+          "late_credits": 53275.537333333334
+        },
+        "truth_saving": 445.0,
+        "twin_saving": -605.0,
+        "truth_flow_change": -0.022,
+        "twin_flow_change": 0.023
+      }
+    },
+    "calibrated_on_days": 60,
+    "orders": 1055,
+    "rank_correlation": 0.964,
+    "truth_best": "+1 placer",
+    "twin_best": "+1 placer"
+  },
+  "scenarios_dev": {
+    "demand-surge": {
+      "today": {
+        "stack": "today",
+        "seed": 201,
+        "requests": 2024,
+        "win_rate": 0.5929,
+        "orders": 1200,
+        "shipped_share": 0.695,
+        "revenue": 2456433.0,
+        "contribution": 271608.0,
+        "late_credits": 881797.0,
+        "holding": 11429.0,
+        "inventory_start": 312988.0,
+        "inventory_end": 299962.0,
+        "on_time": 0.0,
+        "late_days_mean": 7.321,
+        "lead_days_median": 14.0,
+        "lead_days_p90": 21.0,
+        "promise_days_median": 8.0,
+        "markup_median": 2.42,
+        "parts_wait_days_mean": 4.547,
+        "boards_per_day": 797.6,
+        "contribution_per_day": 10864.0,
+        "seconds": 34
+      },
+      "system": {
+        "stack": "system",
+        "seed": 201,
+        "requests": 2024,
+        "win_rate": 0.3226,
+        "orders": 653,
+        "shipped_share": 0.9969,
+        "revenue": 1173613.0,
+        "contribution": 487049.0,
+        "late_credits": 6540.0,
+        "holding": 25880.0,
+        "inventory_start": 912905.0,
+        "inventory_end": 708060.0,
+        "on_time": 0.9893,
+        "late_days_mean": 0.044,
+        "lead_days_median": 3.0,
+        "lead_days_p90": 8.0,
+        "promise_days_median": 15.0,
+        "markup_median": 2.335,
+        "parts_wait_days_mean": 2.161,
+        "boards_per_day": 427.1,
+        "contribution_per_day": 19482.0,
+        "seconds": 388,
+        "forecasts": {
+          "panels": {
+            "0": {
+              "n": 35,
+              "mape": 0.025,
+              "bias": -0.014,
+              "coverage_p10_p90": 0.457
+            },
+            "1": {
+              "n": 34,
+              "mape": 0.074,
+              "bias": -0.027,
+              "coverage_p10_p90": 0.471
+            },
+            "2": {
+              "n": 33,
+              "mape": 0.163,
+              "bias": -0.11,
+              "coverage_p10_p90": 0.394
+            },
+            "3": {
+              "n": 32,
+              "mape": 0.176,
+              "bias": -0.096,
+              "coverage_p10_p90": 0.344
+            },
+            "4": {
+              "n": 31,
+              "mape": 0.194,
+              "bias": -0.146,
+              "coverage_p10_p90": 0.29
+            },
+            "5": {
+              "n": 30,
+              "mape": 0.316,
+              "bias": -0.085,
+              "coverage_p10_p90": 0.1
+            }
+          },
+          "panels_conformal": {
+            "0": 0.88,
+            "1": 0.708,
+            "2": 0.261,
+            "3": 0.318,
+            "4": 0.238,
+            "5": 0.2
+          },
+          "ship_day": {
+            "n": 8917,
+            "within_1_day": 0.756,
+            "median_error_days": 0.0,
+            "p90_covers": 0.846
+          }
+        },
+        "solver": {
+          "optimal": 3,
+          "feasible": 35,
+          "fallback": 0
+        }
+      }
+    },
+    "distributor-shortage": {
+      "today": {
+        "stack": "today",
+        "seed": 203,
+        "requests": 1840,
+        "win_rate": 0.6109,
+        "orders": 1124,
+        "shipped_share": 0.9066,
+        "revenue": 2394622.0,
+        "contribution": 630372.0,
+        "late_credits": 454494.0,
+        "holding": 11372.0,
+        "inventory_start": 491114.0,
+        "inventory_end": 293519.0,
+        "on_time": 0.54,
+        "late_days_mean": 2.623,
+        "lead_days_median": 8.0,
+        "lead_days_p90": 17.0,
+        "promise_days_median": 8.0,
+        "markup_median": 2.304,
+        "parts_wait_days_mean": 5.088,
+        "boards_per_day": 706.0,
+        "contribution_per_day": 25215.0,
+        "seconds": 30
+      },
+      "system": {
+        "stack": "system",
+        "seed": 203,
+        "requests": 1840,
+        "win_rate": 0.4071,
+        "orders": 749,
+        "shipped_share": 0.996,
+        "revenue": 1691866.0,
+        "contribution": 859076.0,
+        "late_credits": 8285.0,
+        "holding": 25327.0,
+        "inventory_start": 873719.0,
+        "inventory_end": 721635.0,
+        "on_time": 0.9933,
+        "late_days_mean": 0.04,
+        "lead_days_median": 2.0,
+        "lead_days_p90": 4.0,
+        "promise_days_median": 10.0,
+        "markup_median": 2.699,
+        "parts_wait_days_mean": 1.879,
+        "boards_per_day": 441.0,
+        "contribution_per_day": 34363.0,
+        "seconds": 386,
+        "forecasts": {
+          "panels": {
+            "0": {
+              "n": 35,
+              "mape": 0.03,
+              "bias": 0.0,
+              "coverage_p10_p90": 0.4
+            },
+            "1": {
+              "n": 34,
+              "mape": 0.126,
+              "bias": -0.001,
+              "coverage_p10_p90": 0.294
+            },
+            "2": {
+              "n": 33,
+              "mape": 0.254,
+              "bias": -0.164,
+              "coverage_p10_p90": 0.182
+            },
+            "3": {
+              "n": 32,
+              "mape": 0.3,
+              "bias": -0.05,
+              "coverage_p10_p90": 0.188
+            },
+            "4": {
+              "n": 31,
+              "mape": 0.261,
+              "bias": -0.09,
+              "coverage_p10_p90": 0.129
+            },
+            "5": {
+              "n": 30,
+              "mape": 0.31,
+              "bias": -0.2,
+              "coverage_p10_p90": 0.167
+            }
+          },
+          "panels_conformal": {
+            "0": 0.64,
+            "1": 0.417,
+            "2": 0.522,
+            "3": 0.318,
+            "4": 0.381,
+            "5": 0.2
+          },
+          "ship_day": {
+            "n": 8389,
+            "within_1_day": 0.721,
+            "median_error_days": 0.0,
+            "p90_covers": 0.852
+          }
+        },
+        "solver": {
+          "optimal": 0,
+          "feasible": 38,
+          "fallback": 0
+        }
+      }
+    },
+    "placer-outage": {
+      "today": {
+        "stack": "today",
+        "seed": 202,
+        "requests": 1792,
+        "win_rate": 0.6016,
+        "orders": 1078,
+        "shipped_share": 0.9193,
+        "revenue": 2944905.0,
+        "contribution": 837049.0,
+        "late_credits": 471320.0,
+        "holding": 13261.0,
+        "inventory_start": 316886.0,
+        "inventory_end": 308549.0,
+        "on_time": 0.7709,
+        "late_days_mean": 1.81,
+        "lead_days_median": 7.0,
+        "lead_days_p90": 15.0,
+        "promise_days_median": 8.0,
+        "markup_median": 2.27,
+        "parts_wait_days_mean": 4.243,
+        "boards_per_day": 756.1,
+        "contribution_per_day": 33482.0,
+        "seconds": 32
+      },
+      "system": {
+        "stack": "system",
+        "seed": 202,
+        "requests": 1792,
+        "win_rate": 0.4007,
+        "orders": 718,
+        "shipped_share": 1.0,
+        "revenue": 2008269.0,
+        "contribution": 1015117.0,
+        "late_credits": 16198.0,
+        "holding": 25469.0,
+        "inventory_start": 844504.0,
+        "inventory_end": 724988.0,
+        "on_time": 0.9457,
+        "late_days_mean": 0.142,
+        "lead_days_median": 3.0,
+        "lead_days_p90": 7.0,
+        "promise_days_median": 10.0,
+        "markup_median": 2.667,
+        "parts_wait_days_mean": 2.462,
+        "boards_per_day": 466.2,
+        "contribution_per_day": 40605.0,
+        "seconds": 335,
+        "forecasts": {
+          "panels": {
+            "0": {
+              "n": 35,
+              "mape": 0.042,
+              "bias": -0.002,
+              "coverage_p10_p90": 0.314
+            },
+            "1": {
+              "n": 34,
+              "mape": 0.097,
+              "bias": -0.013,
+              "coverage_p10_p90": 0.294
+            },
+            "2": {
+              "n": 33,
+              "mape": 0.195,
+              "bias": -0.073,
+              "coverage_p10_p90": 0.212
+            },
+            "3": {
+              "n": 32,
+              "mape": 0.249,
+              "bias": -0.001,
+              "coverage_p10_p90": 0.125
+            },
+            "4": {
+              "n": 31,
+              "mape": 0.246,
+              "bias": -0.097,
+              "coverage_p10_p90": 0.032
+            },
+            "5": {
+              "n": 30,
+              "mape": 0.222,
+              "bias": -0.091,
+              "coverage_p10_p90": 0.033
+            }
+          },
+          "panels_conformal": {
+            "0": 0.8,
+            "1": 0.458,
+            "2": 0.435,
+            "3": 0.364,
+            "4": 0.524,
+            "5": 0.35
+          },
+          "ship_day": {
+            "n": 6219,
+            "within_1_day": 0.695,
+            "median_error_days": 0.0,
+            "p90_covers": 0.828
+          }
+        },
+        "solver": {
+          "optimal": 1,
+          "feasible": 37,
+          "fallback": 0
+        }
+      }
+    }
+  },
+  "scenarios_heldout": {
+    "v1": {
+      "status": "blind",
+      "latest": {
+        "component-allocation-crunch-with-panic-ordering": {
+          "today": {
+            "stack": "today",
+            "seed": 562,
+            "requests": 1858,
+            "win_rate": 0.5996,
+            "orders": 1114,
+            "shipped_share": 0.8151,
+            "revenue": 2181161.0,
+            "contribution": 376901.0,
+            "late_credits": 633734.0,
+            "holding": 13824.0,
+            "inventory_start": 318556.0,
+            "inventory_end": 368718.0,
+            "on_time": 0.5736,
+            "late_days_mean": 5.552,
+            "lead_days_median": 6.0,
+            "lead_days_p90": 27.0,
+            "promise_days_median": 8.0,
+            "markup_median": 2.344,
+            "parts_wait_days_mean": 7.219,
+            "boards_per_day": 713.5,
+            "contribution_per_day": 15076.0,
+            "seconds": 33
+          },
+          "system": {
+            "stack": "system",
+            "seed": 562,
+            "requests": 1858,
+            "win_rate": 0.4209,
+            "orders": 782,
+            "shipped_share": 0.9974,
+            "revenue": 1550904.0,
+            "contribution": 740820.0,
+            "late_credits": 49539.0,
+            "holding": 22549.0,
+            "inventory_start": 712615.0,
+            "inventory_end": 792936.0,
+            "on_time": 0.9591,
+            "late_days_mean": 0.229,
+            "lead_days_median": 2.0,
+            "lead_days_p90": 5.0,
+            "promise_days_median": 10.0,
+            "markup_median": 2.669,
+            "parts_wait_days_mean": 2.468,
+            "boards_per_day": 457.8,
+            "contribution_per_day": 29633.0,
+            "seconds": 355,
+            "forecasts": {
+              "panels": {
+                "0": {
+                  "n": 35,
+                  "mape": 0.022,
+                  "bias": 0.002,
+                  "coverage_p10_p90": 0.629
+                },
+                "1": {
+                  "n": 34,
+                  "mape": 0.205,
+                  "bias": -0.103,
+                  "coverage_p10_p90": 0.382
+                },
+                "2": {
+                  "n": 33,
+                  "mape": 0.424,
+                  "bias": -0.366,
+                  "coverage_p10_p90": 0.242
+                },
+                "3": {
+                  "n": 32,
+                  "mape": 0.268,
+                  "bias": -0.117,
+                  "coverage_p10_p90": 0.219
+                },
+                "4": {
+                  "n": 31,
+                  "mape": 0.294,
+                  "bias": -0.149,
+                  "coverage_p10_p90": 0.194
+                },
+                "5": {
+                  "n": 30,
+                  "mape": 0.538,
+                  "bias": -0.067,
+                  "coverage_p10_p90": 0.133
+                }
+              },
+              "panels_conformal": {
+                "0": 0.68,
+                "1": 0.417,
+                "2": 0.174,
+                "3": 0.182,
+                "4": 0.143,
+                "5": 0.15
+              },
+              "ship_day": {
+                "n": 7398,
+                "within_1_day": 0.693,
+                "median_error_days": 0.0,
+                "p90_covers": 0.842
+              }
+            },
+            "solver": {
+              "optimal": 3,
+              "feasible": 36,
+              "fallback": 0
+            }
+          }
+        },
+        "launch-surge-with-fast-placer-breakdown": {
+          "today": {
+            "stack": "today",
+            "seed": 417,
+            "requests": 2422,
+            "win_rate": 0.5739,
+            "orders": 1390,
+            "shipped_share": 0.7237,
+            "revenue": 2848107.0,
+            "contribution": 352298.0,
+            "late_credits": 968504.0,
+            "holding": 10606.0,
+            "inventory_start": 285497.0,
+            "inventory_end": 207581.0,
+            "on_time": 0.0597,
+            "late_days_mean": 7.619,
+            "lead_days_median": 14.0,
+            "lead_days_p90": 21.0,
+            "promise_days_median": 8.0,
+            "markup_median": 2.386,
+            "parts_wait_days_mean": 4.097,
+            "boards_per_day": 894.1,
+            "contribution_per_day": 14092.0,
+            "seconds": 33
+          },
+          "system": {
+            "stack": "system",
+            "seed": 417,
+            "requests": 2422,
+            "win_rate": 0.332,
+            "orders": 804,
+            "shipped_share": 0.9988,
+            "revenue": 1462983.0,
+            "contribution": 717682.0,
+            "late_credits": 3946.0,
+            "holding": 21478.0,
+            "inventory_start": 721339.0,
+            "inventory_end": 623856.0,
+            "on_time": 0.9938,
+            "late_days_mean": 0.024,
+            "lead_days_median": 3.0,
+            "lead_days_p90": 6.0,
+            "promise_days_median": 12.0,
+            "markup_median": 2.591,
+            "parts_wait_days_mean": 1.69,
+            "boards_per_day": 448.7,
+            "contribution_per_day": 28707.0,
+            "seconds": 344,
+            "forecasts": {
+              "panels": {
+                "0": {
+                  "n": 35,
+                  "mape": 0.048,
+                  "bias": 0.007,
+                  "coverage_p10_p90": 0.371
+                },
+                "1": {
+                  "n": 34,
+                  "mape": 0.164,
+                  "bias": -0.109,
+                  "coverage_p10_p90": 0.412
+                },
+                "2": {
+                  "n": 33,
+                  "mape": 0.273,
+                  "bias": -0.123,
+                  "coverage_p10_p90": 0.273
+                },
+                "3": {
+                  "n": 32,
+                  "mape": 0.285,
+                  "bias": -0.029,
+                  "coverage_p10_p90": 0.156
+                },
+                "4": {
+                  "n": 31,
+                  "mape": 0.306,
+                  "bias": -0.058,
+                  "coverage_p10_p90": 0.097
+                },
+                "5": {
+                  "n": 30,
+                  "mape": 0.338,
+                  "bias": 0.008,
+                  "coverage_p10_p90": 0.233
+                }
+              },
+              "panels_conformal": {
+                "0": 0.84,
+                "1": 0.458,
+                "2": 0.348,
+                "3": 0.364,
+                "4": 0.333,
+                "5": 0.5
+              },
+              "ship_day": {
+                "n": 6246,
+                "within_1_day": 0.835,
+                "median_error_days": 0.0,
+                "p90_covers": 0.843
+              }
+            },
+            "solver": {
+              "optimal": 0,
+              "feasible": 38,
+              "fallback": 0
+            }
+          }
+        },
+        "overlapping-oven-outages-across-holiday-rebound": {
+          "today": {
+            "stack": "today",
+            "seed": 838,
+            "requests": 1921,
+            "win_rate": 0.582,
+            "orders": 1118,
+            "shipped_share": 0.814,
+            "revenue": 2203440.0,
+            "contribution": 584090.0,
+            "late_credits": 435079.0,
+            "holding": 9482.0,
+            "inventory_start": 303665.0,
+            "inventory_end": 284320.0,
+            "on_time": 0.5894,
+            "late_days_mean": 2.783,
+            "lead_days_median": 7.0,
+            "lead_days_p90": 18.0,
+            "promise_days_median": 8.0,
+            "markup_median": 2.468,
+            "parts_wait_days_mean": 3.865,
+            "boards_per_day": 847.4,
+            "contribution_per_day": 23364.0,
+            "seconds": 32
+          },
+          "system": {
+            "stack": "system",
+            "seed": 838,
+            "requests": 1921,
+            "win_rate": 0.3743,
+            "orders": 719,
+            "shipped_share": 1.0,
+            "revenue": 1484556.0,
+            "contribution": 734455.0,
+            "late_credits": 15852.0,
+            "holding": 23163.0,
+            "inventory_start": 759887.0,
+            "inventory_end": 701395.0,
+            "on_time": 0.9861,
+            "late_days_mean": 0.036,
+            "lead_days_median": 3.0,
+            "lead_days_p90": 6.0,
+            "promise_days_median": 10.0,
+            "markup_median": 2.77,
+            "parts_wait_days_mean": 1.858,
+            "boards_per_day": 494.8,
+            "contribution_per_day": 29378.0,
+            "seconds": 345,
+            "forecasts": {
+              "panels": {
+                "0": {
+                  "n": 35,
+                  "mape": 0.03,
+                  "bias": -0.025,
+                  "coverage_p10_p90": 0.457
+                },
+                "1": {
+                  "n": 34,
+                  "mape": 0.15,
+                  "bias": -0.019,
+                  "coverage_p10_p90": 0.324
+                },
+                "2": {
+                  "n": 33,
+                  "mape": 0.276,
+                  "bias": -0.184,
+                  "coverage_p10_p90": 0.364
+                },
+                "3": {
+                  "n": 32,
+                  "mape": 0.204,
+                  "bias": -0.165,
+                  "coverage_p10_p90": 0.406
+                },
+                "4": {
+                  "n": 31,
+                  "mape": 0.286,
+                  "bias": -0.109,
+                  "coverage_p10_p90": 0.258
+                },
+                "5": {
+                  "n": 30,
+                  "mape": 0.395,
+                  "bias": -0.133,
+                  "coverage_p10_p90": 0.233
+                }
+              },
+              "panels_conformal": {
+                "0": 0.52,
+                "1": 0.25,
+                "2": 0.217,
+                "3": 0.545,
+                "4": 0.143,
+                "5": 0.2
+              },
+              "ship_day": {
+                "n": 6305,
+                "within_1_day": 0.753,
+                "median_error_days": 0.0,
+                "p90_covers": 0.891
+              }
+            },
+            "solver": {
+              "optimal": 0,
+              "feasible": 38,
+              "fallback": 0
+            }
+          }
+        }
+      }
+    }
+  },
+  "seconds": 3764
+}

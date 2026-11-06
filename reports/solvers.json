@@ -1,0 +1,194 @@
+{
+  "seconds_limit": 15.0,
+  "per_size": 4,
+  "sizes": {
+    "5": {
+      "cp-sat": {
+        "proven": 4,
+        "median_seconds": 0.02,
+        "agree_with_cpsat": 4,
+        "compared": 4,
+        "ended_without_solution_early": 0,
+        "errors": 0,
+        "first_error": null
+      },
+      "cbc": {
+        "proven": 4,
+        "median_seconds": 0.78,
+        "agree_with_cpsat": 4,
+        "compared": 4,
+        "ended_without_solution_early": 0,
+        "errors": 0,
+        "first_error": null
+      },
+      "gecode": {
+        "proven": 3,
+        "median_seconds": 0.61,
+        "agree_with_cpsat": 3,
+        "compared": 3,
+        "ended_without_solution_early": 0,
+        "errors": 0,
+        "first_error": null
+      },
+      "chuffed": {
+        "proven": 0,
+        "median_seconds": null,
+        "agree_with_cpsat": 0,
+        "compared": 0,
+        "ended_without_solution_early": 0,
+        "errors": 0,
+        "first_error": null
+      },
+      "highs": {
+        "proven": 3,
+        "median_seconds": 0.68,
+        "agree_with_cpsat": 3,
+        "compared": 3,
+        "ended_without_solution_early": 1,
+        "errors": 0,
+        "first_error": null
+      }
+    },
+    "8": {
+      "cp-sat": {
+        "proven": 4,
+        "median_seconds": 0.07,
+        "agree_with_cpsat": 4,
+        "compared": 4,
+        "ended_without_solution_early": 0,
+        "errors": 0,
+        "first_error": null
+      },
+      "cbc": {
+        "proven": 3,
+        "median_seconds": 7.0,
+        "agree_with_cpsat": 3,
+        "compared": 3,
+        "ended_without_solution_early": 0,
+        "errors": 0,
+        "first_error": null
+      },
+      "gecode": {
+        "proven": 0,
+        "median_seconds": null,
+        "agree_with_cpsat": 0,
+        "compared": 0,
+        "ended_without_solution_early": 0,
+        "errors": 0,
+        "first_error": null
+      },
+      "chuffed": {
+        "proven": 0,
+        "median_seconds": null,
+        "agree_with_cpsat": 0,
+        "compared": 0,
+        "ended_without_solution_early": 0,
+        "errors": 0,
+        "first_error": null
+      },
+      "highs": {
+        "proven": 3,
+        "median_seconds": 6.3,
+        "agree_with_cpsat": 3,
+        "compared": 3,
+        "ended_without_solution_early": 0,
+        "errors": 0,
+        "first_error": null
+      }
+    },
+    "12": {
+      "cp-sat": {
+        "proven": 3,
+        "median_seconds": 2.6,
+        "agree_with_cpsat": 3,
+        "compared": 3,
+        "ended_without_solution_early": 0,
+        "errors": 0,
+        "first_error": null
+      },
+      "cbc": {
+        "proven": 0,
+        "median_seconds": null,
+        "agree_with_cpsat": 0,
+        "compared": 0,
+        "ended_without_solution_early": 0,
+        "errors": 0,
+        "first_error": null
+      },
+      "gecode": {
+        "proven": 0,
+        "median_seconds": null,
+        "agree_with_cpsat": 0,
+        "compared": 0,
+        "ended_without_solution_early": 0,
+        "errors": 0,
+        "first_error": null
+      },
+      "chuffed": {
+        "proven": 0,
+        "median_seconds": null,
+        "agree_with_cpsat": 0,
+        "compared": 0,
+        "ended_without_solution_early": 0,
+        "errors": 0,
+        "first_error": null
+      },
+      "highs": {
+        "proven": 0,
+        "median_seconds": null,
+        "agree_with_cpsat": 0,
+        "compared": 0,
+        "ended_without_solution_early": 0,
+        "errors": 0,
+        "first_error": null
+      }
+    },
+    "20": {
+      "cp-sat": {
+        "proven": 0,
+        "median_seconds": null,
+        "agree_with_cpsat": 0,
+        "compared": 0,
+        "ended_without_solution_early": 0,
+        "errors": 0,
+        "first_error": null
+      },
+      "cbc": {
+        "proven": 0,
+        "median_seconds": null,
+        "agree_with_cpsat": 0,
+        "compared": 0,
+        "ended_without_solution_early": 0,
+        "errors": 0,
+        "first_error": null
+      },
+      "gecode": {
+        "proven": 0,
+        "median_seconds": null,
+        "agree_with_cpsat": 0,
+        "compared": 0,
+        "ended_without_solution_early": 0,
+        "errors": 4,
+        "first_error": "Error: The literal '4883032606' of the type int is out of range (-2147483646..2147483646) in line no. 68"
+      },
+      "chuffed": {
+        "proven": 0,
+        "median_seconds": null,
+        "agree_with_cpsat": 0,
+        "compared": 0,
+        "ended_without_solution_early": 0,
+        "errors": 3,
+        "first_error": "WARNING: the --time-out flag has recently been changed.The time-out is now provided in milliseconds instead of seconds"
+      },
+      "highs": {
+        "proven": 0,
+        "median_seconds": null,
+        "agree_with_cpsat": 0,
+        "compared": 0,
+        "ended_without_solution_early": 0,
+        "errors": 0,
+        "first_error": null
+      }
+    }
+  }
+}
