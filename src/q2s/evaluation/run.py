@@ -40,6 +40,8 @@ def _one(args: tuple[str, int, dict[str, Any] | None]) -> dict[str, Any]:
     out["seconds"] = round(time.time() - t)
     if stack == "system":
         out["forecasts"] = forecast_checks(run)
+        solves = run.ledger.solves
+        out["solver"] = {s: sum(x["status"] == s for x in solves) for s in ("optimal", "feasible", "fallback")}
         out["ledger"] = {
             "calibrations": run.ledger.calibrations[-6:],
             "flags": [o for o in run.ledger.outlooks if o["flags"]][-5:],
@@ -133,8 +135,9 @@ def evaluate(workers: int = 2, quick: bool = False) -> dict[str, Any]:
             results.setdefault("scenarios_heldout", {})[folder.name] = {"status": status, "latest": res}
             if not first.exists():
                 first.parent.mkdir(parents=True, exist_ok=True)
-                commit = subprocess.run(["git", "rev-parse", "--short", "HEAD"], cwd=ROOT, capture_output=True,
-                                        text=True).stdout.strip()
+                commit = subprocess.run(
+                    ["git", "rev-parse", "--short", "HEAD"], cwd=ROOT, capture_output=True, text=True
+                ).stdout.strip()
                 first.write_text(json.dumps({"set": folder.name, "commit": commit, "results": res}, indent=2))
                 digest = hashlib.sha256(first.read_bytes()).hexdigest()
                 (first.parent / "first_run.sha256").write_text(f"{digest}  first_run.json\n")

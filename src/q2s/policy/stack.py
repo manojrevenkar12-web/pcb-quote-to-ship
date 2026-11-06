@@ -44,6 +44,7 @@ class Ledger:
     ships: list[dict[str, Any]] = field(default_factory=list)
     outlooks: list[dict[str, Any]] = field(default_factory=list)
     calibrations: list[dict[str, Any]] = field(default_factory=list)
+    solves: list[dict[str, Any]] = field(default_factory=list)
 
 
 class PlanningSystem:
@@ -132,7 +133,11 @@ class PlanningSystem:
             self._recalibrate(obs, logs)
         assert self.cal is not None
         rule = RULES[self.cfg.schedule]
-        release = rule(obs, self.cal, self._wip_minutes(obs)) if self.cfg.schedule == "cpsat" else rule(obs, self.cal)
+        release = (
+            rule(obs, self.cal, self._wip_minutes(obs), log=self.ledger.solves)
+            if self.cfg.schedule == "cpsat"
+            else rule(obs, self.cal)
+        )
         look = None
         if self.cfg.outlook or self.cfg.quoting == "model":
             look = outlook(

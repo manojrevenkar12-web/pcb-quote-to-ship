@@ -8,7 +8,11 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
-      - run: pip install -e ".[pipeline,dev]"
+      - name: MiniZinc (Gecode, Chuffed, HiGHS) for the second release model
+        run: |
+          curl -sSL https://github.com/MiniZinc/MiniZincIDE/releases/download/2.9.3/MiniZincIDE-2.9.3-bundle-linux-x86_64.tgz | tar xz -C "$RUNNER_TEMP"
+          echo "$RUNNER_TEMP/MiniZincIDE-2.9.3-bundle-linux-x86_64/bin" >> "$GITHUB_PATH"
+      - run: pip install -e ".[pipeline,solvers,dev]"
       - run: ruff check src tests
       - name: unit tests, warehouse parity and the Dagster job
         run: pytest -q

@@ -39,3 +39,17 @@ def test_cpsat_puts_the_urgent_valuable_order_first(history_world, cal):
     trial = Observation(obs.day, [], late[:-1] + [urgent], [], obs.inventory, [], obs.catalog)
     order = RULES["cpsat"](trial, cal)
     assert order[0] == urgent.order_id
+
+
+def test_cpsat_still_solves_when_orders_are_long_overdue(history_world, cal):
+    """Regression: an order overdue by more than the horizon made the model infeasible and the solver
+    fell back to ATCS for the whole morning. Found by the second (MiniZinc) model, which agreed."""
+    obs = _obs(history_world)
+    ready = releasable(obs)[:5]
+    if len(ready) < 2:
+        return
+    overdue = [replace(o, due_day=obs.day - 20) for o in ready]
+    trial = Observation(obs.day, [], overdue, [], obs.inventory, [], obs.catalog)
+    log: list[dict] = []
+    RULES["cpsat"](trial, cal, log=log)
+    assert log and log[0]["status"] != "fallback"

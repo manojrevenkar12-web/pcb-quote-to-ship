@@ -25,6 +25,7 @@ dependencies = [
 
 [project.optional-dependencies]
 pipeline = ["dagster>=1.8", "dagster-dbt>=0.24", "dbt-duckdb>=1.8"]
+solvers = ["minizinc>=0.9"]  # plus the MiniZinc bundle on PATH
 dev = ["pytest>=8", "ruff>=0.5"]
 
 [project.scripts]
@@ -33,9 +34,12 @@ q2s = "q2s.cli:main"
 [tool.setuptools.packages.find]
 where = ["src"]
 
+[tool.setuptools.package-data]
+"q2s.policy" = ["models/*.mzn"]
+
 [tool.pytest.ini_options]
 testpaths = ["tests"]
-markers = ["slow: runs a multi-week simulation", "pipeline: needs dbt-duckdb and dagster"]
+markers = ["slow: runs a multi-week simulation", "pipeline: needs dbt-duckdb and dagster", "minizinc: needs the MiniZinc bundle"]
 
 [tool.ruff]
 line-length = 120
@@ -44,3 +48,7 @@ target-version = "py311"
 [tool.ruff.lint]
 select = ["E", "F", "W", "B", "I"]
 ignore = ["B905", "B007"]
+
+[tool.ruff.lint.per-file-ignores]
+# HTML template strings read better unbroken.
+"src/q2s/evaluation/report.py" = ["E501"]

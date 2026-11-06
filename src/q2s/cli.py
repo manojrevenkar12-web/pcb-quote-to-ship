@@ -12,6 +12,7 @@ def main(argv: list[str] | None = None) -> None:
     ev = sub.add_parser("evaluate", help="all stacks on all seeds, machine study, scenarios -> reports/")
     ev.add_argument("--workers", type=int, default=2)
     ev.add_argument("--quick", action="store_true", help="one seed, today vs system only")
+    sub.add_parser("solvers", help="the release problem by size: CP-SAT against MiniZinc back ends -> reports/")
     sub.add_parser("report", help="reports/REPORT.md and reports/dashboard.html from reports/results.json")
     pl = sub.add_parser("pipeline", help="simulate days into the landing zone, then dbt build and the Dagster job")
     pl.add_argument("--days", type=int, default=45)
@@ -21,6 +22,10 @@ def main(argv: list[str] | None = None) -> None:
 
         res = evaluate(args.workers, args.quick)
         print(json.dumps(res["comparisons"].get("system", {}), indent=2))
+    elif args.cmd == "solvers":
+        from q2s.evaluation.solvers import run
+
+        print(json.dumps(run(), indent=2))
     elif args.cmd == "report":
         from q2s.evaluation.report import build
 
