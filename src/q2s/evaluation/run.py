@@ -6,7 +6,9 @@ held-out set runs (never rewritten afterwards), and the figures the report and d
 
 from __future__ import annotations
 
+import hashlib
 import json
+import subprocess
 import time
 from concurrent.futures import ProcessPoolExecutor
 from pathlib import Path
@@ -131,7 +133,11 @@ def evaluate(workers: int = 2, quick: bool = False) -> dict[str, Any]:
             results.setdefault("scenarios_heldout", {})[folder.name] = {"status": status, "latest": res}
             if not first.exists():
                 first.parent.mkdir(parents=True, exist_ok=True)
-                first.write_text(json.dumps({"set": folder.name, "results": res}, indent=2))
+                commit = subprocess.run(["git", "rev-parse", "--short", "HEAD"], cwd=ROOT, capture_output=True,
+                                        text=True).stdout.strip()
+                first.write_text(json.dumps({"set": folder.name, "commit": commit, "results": res}, indent=2))
+                digest = hashlib.sha256(first.read_bytes()).hexdigest()
+                (first.parent / "first_run.sha256").write_text(f"{digest}  first_run.json\n")
     results["seconds"] = round(time.time() - t0)
     (REPORTS / "results.json").write_text(json.dumps(results, indent=2, default=str))
     return results
